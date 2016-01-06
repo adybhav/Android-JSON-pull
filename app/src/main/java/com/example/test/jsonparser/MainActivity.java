@@ -19,8 +19,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.Buffer;
 
-import javax.net.ssl.HttpsURLConnection;
-
 public class MainActivity extends AppCompatActivity {
 Button b1;
 TextView t1;
@@ -41,14 +39,14 @@ TextView t1;
 
     }
     public class JSONTask extends AsyncTask<String,String,String>{
-        HttpsURLConnection connection = null;
+        HttpURLConnection connection = null;
         BufferedReader reader = null;
         @Override
         protected String doInBackground(String... params) {
 
             try {
                 URL url=new URL(params[0]);
-                connection= (HttpsURLConnection)url.openConnection();
+                connection= (HttpURLConnection)url.openConnection();
                 connection.connect();
 
                 InputStream stream= connection.getInputStream();
